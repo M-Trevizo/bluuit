@@ -1,12 +1,15 @@
 // NavBar Component
+import './NavBar.css';
+import logo from '../../media/RedditLogo.svg';
+import searchImg from '../../media/search.svg';
 
 export const NavBar = () => {
     return (
         <nav>
-            <img src="../../media/RedditLogo.svg" alt="Reddit Logo"/>
+            <img id="logo" src={logo} alt="Reddit Logo"/>
             <h1>Bluuit</h1>
             <input type="search" id="search-field" placeholder="Search"></input>
-            <img src="../media/search.svg" alt="Search" />
+            <img id="search" src={searchImg} alt="Search" />
         </nav>
     );
 }
