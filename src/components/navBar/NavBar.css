@@ -5,28 +5,41 @@ nav {
     align-items: center;
 }
 
-#logo {
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+#title {
+    display: inline-flex;
+    grid-column: 1 / span 2;
+    grid-row: 1 /span 1; 
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#logo-icon {
     height: 3em;
-    color: #7193FF;
 }
 
 h1 {
     font-size: 20px;
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
+}
+
+#search {
+    display: inline-flex;
+    grid-column: 5 / span 2;
+    grid-row: 1 /span 1;
+    justify-content: flex-end;
 }
 
 input {
-    grid-column: 5 / span 1;
-    grid-row: 1 / span 1;
+    
     height: 2em;
     border-radius: 25px;
 }
 
-#search {
-    grid-column: 6 / span 1;
-    grid-row: 1 / span 1;
+#search-icon {
     height: 2em;
+}
+
+@media only screen and (width < 600px){
+    #search {
+        grid-column: 4 / span 3;
+    }
 }
