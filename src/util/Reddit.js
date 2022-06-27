@@ -1,6 +1,5 @@
 //Reddit API 
 
-/*
 export const getFrontPage = async () => {
     const url = 'http://www.reddit.com/.json';
     const init = {
@@ -10,4 +9,3 @@ export const getFrontPage = async () => {
     const json = await response.json();
     console.log(json.data.children[0].data.subreddit);
 }
-*/
