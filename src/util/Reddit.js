@@ -2,10 +2,9 @@
 const Reddit = {
 
     async getFrontPage() {
-        const url = 'https://www.reddit.com/.json';
+        const url = 'http://www.reddit.com/.json';
         const init = {
             method: 'GET',
-            mode: 'cors'
         }
         try {
             const response = await fetch(url, init);
