@@ -1,11 +1,30 @@
 //Reddit API 
+const Reddit = {
 
-export const getFrontPage = async () => {
-    const url = 'http://www.reddit.com/.json';
-    const init = {
-        method: 'GET'
+    async getFrontPage() {
+        const url = 'https://www.reddit.com/.json';
+        const init = {
+            method: 'GET',
+            mode: 'cors'
+        }
+        try {
+            const response = await fetch(url, init);
+            if(response.ok) {
+                const json = await response.json();
+                const subreddit = json.data.children[0].data.subreddit;
+                console.log(subreddit);
+                return subreddit;
+            }
+            else {
+                console.log(response.status);
+            }
+        }
+        catch(err) {
+            console.log(err);
+        }
+        
     }
-    const response = await fetch(url, init);
-    const json = await response.json();
-    console.log(json.data.children[0].data.subreddit);
+
 }
+
+export { Reddit };

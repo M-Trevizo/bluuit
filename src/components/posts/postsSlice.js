@@ -5,7 +5,10 @@ const postslice = createSlice({
     initialState: [],
     reducers: {
         getPosts(state, action) {
-            
+            const title = action.payload;
+            state.push({
+                title: title
+            });
         }
     }
 });
