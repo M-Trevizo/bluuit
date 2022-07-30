@@ -1,14 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { Reddit } from '../../util/Reddit';
 
-const postslice = createSlice({
+export const getFrontPage = createAsyncThunk(
+    'posts/getFrontPage',
+    async(thunkAPI) => {
+        const response = await Reddit.getFrontPage();
+        console.log('twice?');
+        return response;
+    }
+)
+
+const postsSlice = createSlice({
     name: 'posts',
-    initialState: [],
+    initialState: {
+        posts: [],
+        status: 'idle'
+    },
     reducers: {
-        getPosts(state, action) {
-            const title = action.payload;
-            state.push({
-                title: title
-            });
-        }
+        
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getFrontPage.pending, (state, action) => {
+                state.status = 'pending';
+            })
+            .addCase(getFrontPage.fulfilled, (state, action) => {
+                state.status = 'fulfilled';
+                const title = action.payload;
+                state.posts.push({
+                    title: title
+                });
+            })
+            .addCase(getFrontPage.rejected, (state, action) => {
+                state.status = 'rejected';
+                console.log(action.error);
+            })
     }
 });
+
+export const selectPosts = state => state.posts;
+export const { getPosts } = postsSlice.actions;
+export default postsSlice.reducer;
