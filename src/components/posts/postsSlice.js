@@ -26,10 +26,19 @@ const postsSlice = createSlice({
             })
             .addCase(getFrontPage.fulfilled, (state, action) => {
                 state.status = 'fulfilled';
-                const title = action.payload;
-                state.posts.push({
-                    title: title
-                });
+                const frontPage = action.payload;
+                for(const post of frontPage) {
+                    const toPush = {
+                        subreddit: post.data.subreddit,
+                        title: post.data.title,
+                        postText: post.data.selftext,
+                        thumbnail: post.data.thumbnail,
+                        author: post.data.author,
+                        numComments: post.data.num_comments,
+                        score: post.data.score
+                    }
+                    state.posts.push(toPush);
+                }
             })
             .addCase(getFrontPage.rejected, (state, action) => {
                 state.status = 'rejected';
