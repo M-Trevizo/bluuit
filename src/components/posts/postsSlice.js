@@ -14,7 +14,8 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         posts: [],
-        status: 'idle'
+        isFulfilled: false,
+        isRejected: false
     },
     reducers: {
         
@@ -22,11 +23,13 @@ const postsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getFrontPage.pending, (state, action) => {
-                state.status = 'pending';
+                state.isFulfilled = false;
+                state.isRejected = false;
             })
             .addCase(getFrontPage.fulfilled, (state, action) => {
-                state.status = 'fulfilled';
+                state.isFulfilled = true;
                 const frontPage = action.payload;
+                let key = 0;
                 for(const post of frontPage) {
                     const toPush = {
                         subreddit: post.data.subreddit,
@@ -35,13 +38,15 @@ const postsSlice = createSlice({
                         thumbnail: post.data.thumbnail,
                         author: post.data.author,
                         numComments: post.data.num_comments,
-                        score: post.data.score
+                        score: post.data.score,
+                        key: key
                     }
                     state.posts.push(toPush);
+                    key++;
                 }
             })
             .addCase(getFrontPage.rejected, (state, action) => {
-                state.status = 'rejected';
+                state.isRejected = true;
                 console.log(action.error);
             })
     }

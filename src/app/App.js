@@ -1,12 +1,12 @@
 import './App.css';
 import { NavBar } from '../components/navBar/NavBar';
-import { Post } from '../components/posts/Post';
+import { Posts } from '../components/posts/Posts';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Post />
+      <Posts />
       <header className="App-header">
         <p>This will be Bluuit</p>
       </header>
