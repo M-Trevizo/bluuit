@@ -1,11 +1,14 @@
 import './Post.css';
 
 export const Post = (post) => {
+    //Object destructering
+    const { subreddit, title, postText, thumbnail, author, numComments, score, key } = post.post;
+
     return(
         <section>
-            <h2>{post.title}</h2>
-            <p>{post.postText}</p>
-            <img src={post.thumbnail} alt='Post thumbnail'></img>
+            <h2>{title}</h2>
+            <p>{postText}</p>
+            <img src={thumbnail} alt=''></img>
         </section>
     )
 }

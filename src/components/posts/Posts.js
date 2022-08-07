@@ -30,7 +30,9 @@ export const Posts = () => { //Use Map to li tag to list post components
         return(
             <section>
                 <ul>
-                    {posts.posts.map(post => <Post post={post} key={posts.posts.key} />)}
+                    {posts.posts.map(post => (
+                        <Post post={post} key={posts.posts.key} />
+                    ))}
                 </ul>
             </section>
         )
