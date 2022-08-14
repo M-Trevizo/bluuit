@@ -5,10 +5,13 @@ export const Post = (post) => {
     const { subreddit, title, postText, thumbnail, author, numComments, score, key } = post.post;
 
     return(
-        <section>
+        <section className='post'>
             <h2>{title}</h2>
-            <p>{postText}</p>
+            <p className='subreddit'>r/{subreddit}</p>
+            <p className='post-text'>{postText}</p>
             <img src={thumbnail} alt=''></img>
+            <p className='post-info'>submitted by u/{author}</p>
+            <p className='post-info'>{numComments}</p>
         </section>
     )
 }

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  color: #fbfbfe;
+  background-color: #2b2a33;
 }
 
 .App-header {
@@ -11,4 +13,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+h1,
+h2 {
+  font-family: 'poppins', sans-serif;
+}
+
+p {
+  font-family: 'oswald', sans-serif;
 }
