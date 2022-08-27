@@ -1,6 +1,6 @@
 // NavBar Component
 import './NavBar.css';
-import logo from '../../media/RedditLogo.svg';
+import logo from '../../media/Reddit Logo.svg';
 import searchImg from '../../media/search.svg';
 
 export const NavBar = () => {
