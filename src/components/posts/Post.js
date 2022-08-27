@@ -1,4 +1,6 @@
 import './Post.css';
+import upVote from '../../media/UpVote.svg';
+import downVote from '../../media/DownVote.svg';
 
 export const Post = (post) => {
     //Object destructering
@@ -9,8 +11,10 @@ export const Post = (post) => {
             <h2>{title}</h2>
             <p className='subreddit'>r/{subreddit}</p>
             <p className='post-text'>{postText}</p>
-            <div>
-                <p>&#129093;</p>
+            <div className='voting'>
+                <img id='up' src={upVote} alt='' />
+                <p>{score}</p>
+                <img id='down' src={downVote} alt='' />
             </div>
             <img src={thumbnail} alt=''></img>
             <div className='post-info'>

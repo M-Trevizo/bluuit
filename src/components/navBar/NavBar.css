@@ -14,7 +14,7 @@ nav {
 }
 
 #logo-icon {
-    height: 3em;
+    height: 3rem;
     padding: 1rem
 }
 
@@ -31,12 +31,13 @@ h1 {
 
 input {
     
-    height: 2em;
+    height: 2rem;
     border-radius: 25px;
 }
 
 #search-icon {
-    height: 2em;
+    height: 2rem;
+    padding: 0 1rem;
 }
 
 @media only screen and (width < 600px){
