@@ -10,8 +10,10 @@ export const Post = (post) => {
             <p className='subreddit'>r/{subreddit}</p>
             <p className='post-text'>{postText}</p>
             <img src={thumbnail} alt=''></img>
-            <p className='post-info'>submitted by u/{author}</p>
-            <p className='post-info'>{numComments}</p>
+            <div className='post-info'>
+                <p className='info-item'>submitted by u/{author}</p>
+                <p className='info-item'>{numComments}</p>
+            </div>
         </section>
     )
 }
