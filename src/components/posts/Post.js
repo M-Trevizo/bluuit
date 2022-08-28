@@ -1,6 +1,7 @@
 import './Post.css';
 import upVote from '../../media/UpVote.svg';
 import downVote from '../../media/DownVote.svg';
+import { Comments } from '../../features/comments/Comments';
 
 export const Post = (post) => {
     //Object destructering
@@ -19,7 +20,7 @@ export const Post = (post) => {
             <img src={thumbnail} alt=''></img>
             <div className='post-info'>
                 <p className='info-item'>submitted by u/{author}</p>
-                <p className='info-item'>{numComments}</p>
+                <Comments numComments={numComments} />
             </div>
         </section>
     )
