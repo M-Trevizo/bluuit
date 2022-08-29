@@ -1,7 +1,6 @@
 import './Post.css';
-import upVote from '../../media/UpVote.svg';
-import downVote from '../../media/DownVote.svg';
 import { Comments } from '../../features/comments/Comments';
+import { Voting } from '../../features/voting/Voting';
 
 export const Post = (post) => {
     //Object destructering
@@ -12,11 +11,7 @@ export const Post = (post) => {
             <h2>{title}</h2>
             <p className='subreddit'>r/{subreddit}</p>
             <p className='post-text'>{postText}</p>
-            <div className='voting'>
-                <img id='up' src={upVote} alt='' />
-                <p>{score}</p>
-                <img id='down' src={downVote} alt='' />
-            </div>
+            <Voting score={score} />
             <img src={thumbnail} alt=''></img>
             <div className='post-info'>
                 <p className='info-item'>submitted by u/{author}</p>
