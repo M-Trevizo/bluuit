@@ -26,6 +26,11 @@
     grid-row: 3 / span 3;
 }
 
+#url {
+    height: 100%;
+    width: 100%;
+}
+
 .post-info {
     display: inline-flex;
     justify-content: space-between;

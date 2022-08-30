@@ -36,6 +36,7 @@ const postsSlice = createSlice({
                         title: post.data.title,
                         postText: post.data.selftext,
                         thumbnail: post.data.thumbnail,
+                        url: post.data.url,
                         author: post.data.author,
                         numComments: post.data.num_comments,
                         score: post.data.score,

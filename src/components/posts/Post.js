@@ -4,7 +4,11 @@ import { Voting } from '../../features/voting/Voting';
 
 export const Post = (post) => {
     //Object destructering
-    const { subreddit, title, postText, thumbnail, author, numComments, score, key } = post.post;
+    const { subreddit, title, postText, url, thumbnail, author, numComments, score, key } = post.post;
+
+    const imgToDisplay = url.endsWith('.jpg') ? 
+        <img src={url} id='url' alt='' /> : 
+        <img src={thumbnail} id='thumbnail' alt='' /> ;
 
     return(
         <section className='post'>
@@ -12,7 +16,7 @@ export const Post = (post) => {
             <p className='subreddit'>r/{subreddit}</p>
             <p className='post-text'>{postText}</p>
             <Voting score={score} />
-            <img src={thumbnail} alt=''></img>
+            {imgToDisplay}
             <div className='post-info'>
                 <p className='info-item'>submitted by u/{author}</p>
                 <Comments numComments={numComments} />
