@@ -14,8 +14,8 @@ export const Post = (post) => {
         <section className='post'>
             <h2>{title}</h2>
             <p className='subreddit'>r/{subreddit}</p>
-            <p className='post-text'>{postText}</p>
-            <Voting score={score} />
+            <p className='post-text' >{postText}</p>
+            <Voting id='voting' score={score} />
             {imgToDisplay}
             <div className='post-info'>
                 <p className='info-item'>submitted by u/{author}</p>

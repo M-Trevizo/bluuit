@@ -3,20 +3,22 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
     gap: 10px 10px;
+    align-items: center;
+    border-bottom: 0.5rem solid #000;
 }
 
 .post h2 {
-    grid-column: 1 / span 6;
+    grid-column: 2 / span 5;
     grid-row: 1 / span 1;
 }
 
 .subreddit {
-    grid-column: 1 /span 6;
+    grid-column: 2 /span 5;
     grid-row: 2 / span 1;
 }
 
 .post-text {
-    grid-column: 2 / span 4;
+    grid-column: 2 / span 5;
     grid-row: 3 /span 3;
 }
 
@@ -26,9 +28,18 @@
     grid-row: 3 / span 3;
 }
 
+#voting {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 6;
+}
+
 #url {
     height: 100%;
     width: 100%;
+}
+
+#thumbnail {
+    grid-column: 6 / span 1;
 }
 
 .post-info {

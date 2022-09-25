@@ -1,3 +1,4 @@
+import '../voting/Voting.css'
 import upVote from '../../media/UpVote.svg';
 import downVote from '../../media/DownVote.svg';
 
