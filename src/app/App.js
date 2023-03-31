@@ -7,9 +7,6 @@ function App() {
     <div className="App">
       <NavBar />
       <Posts />
-      <header className="App-header">
-        <p>This will be Bluuit</p>
-      </header>
     </div>
   );
 }
