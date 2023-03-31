@@ -1,6 +1,7 @@
 import './Post.css';
 import { Comments } from '../../features/comments/Comments';
 import { Voting } from '../../features/voting/Voting';
+import { marked } from 'marked';
 
 export const Post = (post) => {
     //Object destructering
@@ -10,11 +11,17 @@ export const Post = (post) => {
         <img src={url} id='url' alt='' /> : 
         <img src={thumbnail} id='thumbnail' alt='' /> ;
 
+    const parsedText = marked.parse(postText);
+
+    const createMarkup = () => {
+        return {__html: parsedText};
+    }
+
     return(
         <section className='post'>
             <h2>{title}</h2>
             <p className='subreddit'>r/{subreddit}</p>
-            <p className='post-text' >{postText}</p>
+            <p className='post-text' dangerouslySetInnerHTML={createMarkup()}></p>
             <Voting id='voting' score={score} />
             {imgToDisplay}
             <div className='post-info'>
