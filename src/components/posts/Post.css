@@ -36,10 +36,11 @@
 #url {
     height: 100%;
     width: 100%;
+    grid-column: 2 / span 5;
 }
 
 #thumbnail {
-    grid-column: 6 / span 1;
+    grid-column: 4 / span 1;
 }
 
 .post-info {
