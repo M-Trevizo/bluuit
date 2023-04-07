@@ -40,6 +40,8 @@ const postsSlice = createSlice({
                         author: post.data.author,
                         numComments: post.data.num_comments,
                         score: post.data.score,
+                        postHint: post.data.post_hint,
+                        postMedia: post.data.media,
                         key: key
                     }
                     state.posts.push(toPush);

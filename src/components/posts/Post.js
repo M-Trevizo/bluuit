@@ -5,12 +5,50 @@ import { marked } from 'marked';
 
 export const Post = (post) => {
     //Object destructering
-    const { subreddit, title, postText, url, thumbnail, author, numComments, score, key } = post.post;
+    const { 
+        subreddit, 
+        title, 
+        postText,
+        thumbnail,
+        url,
+        author,
+        numComments,
+        score,
+        postHint,
+        postMedia,
+        key
+        } = post.post;
 
+    if(postMedia !== null) {
+        const {
+            height,
+            width,
+            videoUrl
+        } = postMedia;
+    }
+
+
+    // Should probably use post_hint property to determine how to handle media.
+    /*
     const imgToDisplay = url.endsWith('.jpg') ? 
         <img src={url} id='url' alt='' /> : 
         <img src={thumbnail} id='thumbnail' alt='' /> ;
+    */
 
+    let imgToDisplay;
+    switch(postHint) {
+        case 'image': 
+            imgToDisplay = <img src={url} id='url' alt='' />;
+        break;
+        case 'hosted:video': 
+            imgToDisplay = 
+                <video id='video' controls width={postMedia.reddit_video.width} height={postMedia.reddit_video.height}>
+                    <source src={postMedia.reddit_video.fallback_url} type='video/mp4' />
+                </video>
+        break;
+        default:
+            imgToDisplay = <img src={thumbnail} id='thumbnail' alt='' />;
+    }
     const parsedText = marked.parse(postText);
 
     const createMarkup = () => {
