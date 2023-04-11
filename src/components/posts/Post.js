@@ -19,35 +19,19 @@ export const Post = (post) => {
         key
         } = post.post;
 
-    if(postMedia !== null) {
-        const {
-            height,
-            width,
-            videoUrl
-        } = postMedia;
-    }
-
-
-    // Should probably use post_hint property to determine how to handle media.
-    /*
-    const imgToDisplay = url.endsWith('.jpg') ? 
-        <img src={url} id='url' alt='' /> : 
-        <img src={thumbnail} id='thumbnail' alt='' /> ;
-    */
-
-    let imgToDisplay;
+    let mediaToDisplay;
     switch(postHint) {
         case 'image': 
-            imgToDisplay = <img src={url} id='url' alt='' />;
+            mediaToDisplay = <img src={url} id='url' alt='' />;
         break;
         case 'hosted:video': 
-            imgToDisplay = 
+            mediaToDisplay = 
                 <video id='video' controls width={postMedia.reddit_video.width} height={postMedia.reddit_video.height}>
                     <source src={postMedia.reddit_video.fallback_url} type='video/mp4' />
                 </video>
         break;
         default:
-            imgToDisplay = <img src={thumbnail} id='thumbnail' alt='' />;
+            mediaToDisplay = <img src={thumbnail} id='thumbnail' alt='' />;
     }
     const parsedText = marked.parse(postText);
 
@@ -61,7 +45,7 @@ export const Post = (post) => {
             <p className='subreddit'>r/{subreddit}</p>
             <p className='post-text' dangerouslySetInnerHTML={createMarkup()}></p>
             <Voting id='voting' score={score} />
-            {imgToDisplay}
+            {mediaToDisplay}
             <div className='post-info'>
                 <p className='info-item'>submitted by u/{author}</p>
                 <Comments numComments={numComments} />
